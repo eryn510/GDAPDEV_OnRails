@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 23058192}
   - component: {fileID: 23058191}
   - component: {fileID: 23058190}
+  - component: {fileID: 23058194}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -226,7 +227,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 23058192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 23058194}
+        m_TargetAssemblyTypeName: mm_to_playScene, Assembly-CSharp
+        m_MethodName: exitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &23058192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +278,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23058188}
   m_CullTransparentMesh: 1
+--- !u!114 &23058194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23058188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e244440c2370a3d4998fb058a01c87bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &36456268
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,7 +5769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7090,7 +7115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGM: {fileID: 1283792301}
   MainMenu: {fileID: 8300000, guid: c487253bda1992a4aa901a9f8350a8e7, type: 3}
-  Level1: {fileID: 8300000, guid: f027528f778d7b343942f339490d9b4d, type: 3}
+  Level1: {fileID: 8300000, guid: 1a26238c05a760445af85b8e31092866, type: 3}
 --- !u!82 &1283792299
 AudioSource:
   m_ObjectHideFlags: 0

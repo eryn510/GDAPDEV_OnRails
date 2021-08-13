@@ -22,4 +22,9 @@ public class mm_to_playScene : MonoBehaviour
         BGMManager.BGMInstance.play(BGMManager.BGMInstance.MainMenu);
         LoaderScript.loadScene(0, SceneManager.sceneCountInBuildSettings - 1);
     }
+
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 }
