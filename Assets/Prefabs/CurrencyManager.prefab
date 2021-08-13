@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7772452182135024314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7772452182135024316}
+  - component: {fileID: 7772452182135024317}
+  m_Layer: 0
+  m_Name: CurrencyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7772452182135024316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7772452182135024314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.297237, y: -2.7078285, z: 106.44623}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7772452182135024317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7772452182135024314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbf49798ea6e5449996ee4d6e7d225f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyPoints: 0
+  currencyText: {fileID: 7158353304592023275, guid: 92ac8c46a2d8d2c4ca6d0f8f5900211f, type: 3}
+  levelTextAmmo: {fileID: 6289009396899859074, guid: b132eb4d81e331d40975e4d733d7496f, type: 3}
+  levelTextFire: {fileID: 649085233489068220, guid: 8e10704d05dbbbc40b7c4127664ea010, type: 3}
+  levelTextWater: {fileID: 1889254677561812383, guid: 75ecc57e6a786894da8f17c6edd84281, type: 3}
+  levelTextElectro: {fileID: 2627525154208443584, guid: ac50f8117cf814a4d985dc2aaa5aaeb0, type: 3}
+  levelTextGround: {fileID: 7096893252861697323, guid: ffbb021862108b148b0b13527b47aa73, type: 3}
+  levelTextHealth: {fileID: 3506761104974950605, guid: 3df2e698792a6464c884c88780ee6505, type: 3}
+  levelBtnAmmo: {fileID: 4364540106899951118, guid: 11e0adff5ffc070409692e158b489eea, type: 3}
+  levelBtnFire: {fileID: 7953090807625814458, guid: a9a9867e48795574684a08e4dade65fe, type: 3}
+  levelBtnWater: {fileID: 7596508905893538001, guid: 7493be5337695cc498c67d0019daa870, type: 3}
+  levelBtnElectro: {fileID: 4557495933440491967, guid: e788911c4fb79d844ba4ad5f6ffd9ff8, type: 3}
+  levelBtnGround: {fileID: 7323131499746319204, guid: cf5a3b66c60835a448fa99fd97da2d3c, type: 3}
+  levelBtnHealth: {fileID: 7469231256985998086, guid: 66adb3f4f9e5e9e49a0dd3b0bf280cc1, type: 3}
+  ammoSphereLevel: 0
+  fireDmgLevel: 0
+  waterDmgLevel: 0
+  electroDmgLevel: 0
+  groundDmgLevel: 0
+  healthAmtLevel: 0
