@@ -62,6 +62,12 @@ public class panelSwitcher : MonoBehaviour
             panelsToEnable[0].SetActive(false); //main men panel
             panelsToEnable[1].SetActive(true); //upgrades panel
         }
+        else if (buttonToClick.name == "HTPButton")
+        {
+            SFXManager.SFXInstance.EnvironmentplaySFX(SFXManager.SFXInstance.ButtonClick);
+            panelsToEnable[0].SetActive(false); //main men panel
+            panelsToEnable[1].SetActive(true); //upgrades panel
+        }
     }
 
     /*
