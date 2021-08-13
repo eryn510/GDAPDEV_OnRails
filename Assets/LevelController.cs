@@ -28,7 +28,8 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        BGMManager.BGMInstance.play(BGMManager.BGMInstance.Level1);
+        BGMManager.BGMInstance.BGM.volume = 0.5f;
     }
 
 

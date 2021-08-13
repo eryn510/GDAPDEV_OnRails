@@ -22,6 +22,11 @@ public class SFXManager : MonoBehaviour
     public AudioClip Electric;
     public AudioClip Ground;
 
+    [Space]
+
+    [Header("Player")]
+    public AudioClip EnemyAttack;
+
     public static SFXManager SFXInstance;
 
     private void Awake()

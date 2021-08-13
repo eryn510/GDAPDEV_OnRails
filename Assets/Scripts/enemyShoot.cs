@@ -37,7 +37,7 @@ public class enemyShoot : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(attackingEnemy.transform.position, transform.TransformDirection(Vector3.forward), out hit, fireRange))
             {
-                
+                SFXManager.SFXInstance.EnemyplaySFX(SFXManager.SFXInstance.EnemyAttack);
                 //if enemy can see player
                 if (hit.transform.name == "Gun")
                 {

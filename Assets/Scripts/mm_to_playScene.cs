@@ -9,9 +9,6 @@ public class mm_to_playScene : MonoBehaviour
     {
         SFXManager.SFXInstance.EnvironmentplaySFX(SFXManager.SFXInstance.ButtonClick);
         BGMManager.BGMInstance.stopBGM();
-        BGMManager.BGMInstance.BGM.PlayDelayed(1.0f);
-        BGMManager.BGMInstance.play(BGMManager.BGMInstance.Level1);
-        BGMManager.BGMInstance.BGM.volume = 0.5f;
         LoaderScript.loadScene(1, SceneManager.sceneCountInBuildSettings - 1);
     }
 

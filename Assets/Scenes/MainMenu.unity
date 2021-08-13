@@ -5260,6 +5260,7 @@ MonoBehaviour:
   Water: {fileID: 8300000, guid: 375530aadfadeca409526231dad7b33f, type: 3}
   Electric: {fileID: 8300000, guid: b0244ba801655ff4095fb2b54b9f17dd, type: 3}
   Ground: {fileID: 8300000, guid: f5be30ef6166ea6469e9e596ef6f7557, type: 3}
+  EnemyAttack: {fileID: 8300000, guid: 77103465eee5b9f41a0cde5ac9f074f2, type: 3}
 --- !u!4 &953039206
 Transform:
   m_ObjectHideFlags: 0
