@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1_NavMesh.unity
     guid: 40399c18de1ab4a498fbc714aff8f54e
   - enabled: 1
+    path: Assets/Scenes/Level2_NavMesh.unity
+    guid: c5014e70502209b42a11ae24e6e9c86a
+  - enabled: 1
+    path: Assets/Scenes/Level3_NavMesh_Original.unity
+    guid: e75adb161b704054d8a7772a2bf692a1
+  - enabled: 1
     path: Assets/Scenes/Loading_Screen.unity
     guid: afb450307325f084ea6fd4e42279fe9b
   m_configObjects: {}

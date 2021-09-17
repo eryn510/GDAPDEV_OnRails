@@ -22,6 +22,9 @@ public class GestureManager : MonoBehaviour
     public GameObject elementalButtons;
     private float rotSpeed = 1.0f;
 
+    private bool isFingerUp = true;
+    private bool isTwoFingersUp = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -56,30 +59,13 @@ public class GestureManager : MonoBehaviour
             
             else if(Input.touchCount > 1)
             {
-                trackedFinger1 = Input.GetTouch(0);
-                trackedFinger2 = Input.GetTouch(1);
-
-                if (trackedFinger1.phase == TouchPhase.Moved || trackedFinger2.phase == TouchPhase.Moved)
-                {
-                    Vector2 prevPoint1 = GetPreviousPoint(trackedFinger1);
-                    Vector2 prevPoint2 = GetPreviousPoint(trackedFinger2);
-
-                    float currDistance = Vector2.Distance(trackedFinger1.position, trackedFinger2.position);
-                    float prevDistance = Vector2.Distance(prevPoint1, prevPoint2);
-
-                    if (Mathf.Abs(currDistance - prevDistance) >= (_spreadProperty.minDistanceChange * Screen.dpi))
-                    {
-                        FireSpreadEvent(currDistance - prevDistance);
-                    }
-                }
-                else
-                {
-                    characterCamera.fieldOfView = Mathf.Lerp(characterCamera.fieldOfView, 45, 0.5f);
-                }
+                checkTwoFingerGestures();
             }
-            
-
-            
+        }
+        else
+        {
+            isFingerUp = true;
+            isTwoFingersUp = true;
         }
     }
 
@@ -89,25 +75,17 @@ public class GestureManager : MonoBehaviour
         {
             startPoint = trackedFinger1.position;
             gestureTime = 0;
-
-            //ENEMY SWIPE MECHANIC
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(trackedFinger1.position);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                if (hit.transform.name == "SwipableEnemy")
-                {
-                    //assign that hit.transform to a transform var here
-                }
-            }
-            //-------------------------
         }
         else if (trackedFinger1.phase == TouchPhase.Ended)
         {
             endPoint = trackedFinger1.position;
+
+            //SWIPE
             if (gestureTime <= _swipeProperty.swipeTime &&
-                Vector2.Distance(startPoint, endPoint) >= (_swipeProperty.minSwipeDistance * Screen.dpi))
+                Vector2.Distance(startPoint, endPoint) >= (_swipeProperty.minSwipeDistance * Screen.dpi) && isFingerUp == true)
             {
+                isFingerUp = false;
+
                 Transform rotHolder = elementalButtons.transform;
                 rotHolder.Rotate(0, 0, -90, Space.Self);
                 elementalButtons.transform.rotation = Quaternion.Slerp(elementalButtons.transform.rotation, rotHolder.rotation, rotSpeed * Time.deltaTime);
@@ -122,6 +100,27 @@ public class GestureManager : MonoBehaviour
         }
     }
 
+    private void checkTwoFingerGestures()
+    {
+        trackedFinger1 = Input.GetTouch(0);
+        trackedFinger2 = Input.GetTouch(1);
+
+        //SPREAD
+        if (trackedFinger1.phase == TouchPhase.Moved || trackedFinger2.phase == TouchPhase.Moved)
+        {
+            Vector2 prevPoint1 = GetPreviousPoint(trackedFinger1);
+            Vector2 prevPoint2 = GetPreviousPoint(trackedFinger2);
+
+            float currDistance = Vector2.Distance(trackedFinger1.position, trackedFinger2.position);
+            float prevDistance = Vector2.Distance(prevPoint1, prevPoint2);
+
+            if (Mathf.Abs(currDistance - prevDistance) >= (_spreadProperty.minDistanceChange * Screen.dpi) && isTwoFingersUp == true)
+            {
+                FireSpreadEvent(currDistance - prevDistance);
+            }
+        }
+    }
+
     private Vector2 GetPreviousPoint(Touch finger)
     {
         return finger.position - finger.deltaPosition;
@@ -129,16 +128,24 @@ public class GestureManager : MonoBehaviour
 
     private void FireSpreadEvent(float dist)
     {
+        isTwoFingersUp = false;
+
         Vector2 mid = GetMidPoint(trackedFinger1.position, trackedFinger2.position);
 
         Ray ray = Camera.main.ScreenPointToRay(mid);
         RaycastHit hit = new RaycastHit();
         GameObject hitObj = null;
 
-        if(Physics.Raycast(ray,out hit, Mathf.Infinity))
+        if(Physics.Raycast(ray,out hit, Mathf.Infinity) && dist > 0) //SPREAD TO ZOOM
         {
+            Debug.Log("SPREAD");
             hitObj = hit.collider.gameObject;
             characterCamera.fieldOfView = Mathf.Lerp(characterCamera.fieldOfView, 20, 0.5f);
+        }
+        else //PINCH TO ZOOM OUT
+        {
+            Debug.Log("PINCH");
+            characterCamera.fieldOfView = Mathf.Lerp(characterCamera.fieldOfView, 45, 0.5f);
         }
 
     }

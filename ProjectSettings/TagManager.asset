@@ -9,6 +9,7 @@ TagManager:
   - ELECTRO
   - Waypoints
   - ENEMY
+  - BOSS
   layers:
   - Default
   - TransparentFX
