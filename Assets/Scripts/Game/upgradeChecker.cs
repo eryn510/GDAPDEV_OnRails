@@ -42,7 +42,7 @@ public class upgradeChecker : MonoBehaviour
     {
         if (money >= 20 && ammoLevel < 5)
         {
-            money -= 20;
+            PlayerPrefs.SetInt("currency", money -= 20);
             ammoLevel += 1;
             this.levelTextAmmo.text = "lv " + ammoLevel.ToString();
 
@@ -55,7 +55,7 @@ public class upgradeChecker : MonoBehaviour
     {
         if (money >= 20 && fireLevel < 5)
         {
-            money -= 20;
+            PlayerPrefs.SetInt("currency", money -= 20);
             fireLevel += 1;
             this.levelTextFire.text = "lv " + fireLevel.ToString();
 
@@ -68,7 +68,7 @@ public class upgradeChecker : MonoBehaviour
     {
         if (money >= 20 && waterLevel < 5)
         {
-            money -= 20;
+            PlayerPrefs.SetInt("currency", money -= 20);
             waterLevel += 1;
             this.levelTextWater.text = "lv " + waterLevel.ToString();
 
@@ -82,7 +82,7 @@ public class upgradeChecker : MonoBehaviour
 
         if (money >= 20 && electroLevel < 5)
         {
-            money -= 20;
+            PlayerPrefs.SetInt("currency", money -= 20);
             electroLevel += 1;
             this.levelTextElectro.text = "lv " + electroLevel.ToString();
 
@@ -95,7 +95,7 @@ public class upgradeChecker : MonoBehaviour
     {
         if (money >= 20 && groundLevel < 5)
         {
-            money -= 20;
+            PlayerPrefs.SetInt("currency", money -= 20);
             groundLevel += 1;
             this.levelTextGround.text = "lv " + groundLevel.ToString();
 
@@ -109,7 +109,7 @@ public class upgradeChecker : MonoBehaviour
     {
         if (money >= 20 && healthLevel < 5)
         {
-            money -= 20;
+            PlayerPrefs.SetInt("currency", money -= 20);
             healthLevel += 1;
             this.levelTextHealth.text = "lv " + healthLevel.ToString();
 

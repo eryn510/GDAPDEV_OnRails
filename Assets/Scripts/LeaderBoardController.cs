@@ -13,7 +13,7 @@ public class LeaderBoardController : MonoBehaviour
     [Header("DO NOT EDIT")]
     private int ID = 403;
     private int ID2 = 416;
-    private int ID3 = 417;
+    private int ID3 = 450;
 
     [HideInInspector] public int timeInLevel;
 
@@ -156,15 +156,15 @@ public class LeaderBoardController : MonoBehaviour
     {
         timeInLevel = (int)TimeManager.Instance.measuredTime;
 
-        LootLockerSDKManager.SubmitScore(MemberID.text, int.Parse(timeInLevel.ToString()), ID3, (response) =>
+        LootLockerSDKManager.SubmitScore(MemberID.text, int.Parse(timeInLevel.ToString()), 450, (response) =>
         {
             if (response.success)
             {
-                Debug.Log("success");
+                Debug.Log("success SUBMIT");
             }
             else
             {
-                Debug.Log("failed");
+                Debug.Log("failed SUBMIT");
             }
         });
     }

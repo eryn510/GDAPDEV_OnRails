@@ -34,6 +34,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         //SET TO TRUE FOR APDEV MP SUBMISSION
         //SET TO FALSE FOR PUBLISHING
         Advertisement.Initialize(GameID, true);
+        isAdFreeMode = PlayerPrefs.GetInt("adFree");
     }
 
     public void showInterstitialAd()
@@ -114,11 +115,16 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     void Start()
     {
         Advertisement.AddListener(this);
-        isAdFreeMode = PlayerPrefs.GetInt("adFree");
+        showBannerMainMenu();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        showBannerMainMenu();
+    }
+
+    void showBannerMainMenu()
     {
         isAdFreeMode = PlayerPrefs.GetInt("adFree");
 

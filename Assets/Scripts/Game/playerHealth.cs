@@ -31,19 +31,19 @@ public class playerHealth : MonoBehaviour
         switch(healthAmtLevel)
         {
             case 1:
-                maxHealth = 105;
+                maxHealth = 350;
                 break;
             case 2:
-                maxHealth = 110;
+                maxHealth = 450;
                 break;
             case 3:
-                maxHealth = 115;
+                maxHealth = 550;
                 break;
             case 4:
-                maxHealth = 125;
+                maxHealth = 600;
                 break;
             case 5:
-                maxHealth = 130;
+                maxHealth = 650;
                 break;
         }
 
